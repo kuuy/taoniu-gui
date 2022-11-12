@@ -113,17 +113,17 @@ function Layout ({ children }) {
             <span>{buttonText}</span>
           </button>
           <div className='split' />
-          <label>相邻：</label>
+          <label>镜像：</label>
           <label className='checkbox'>
             <input type='checkbox' checked={isMirror} onChange={ChangeIsMirror} />
             <i className='iconfont' />
           </label>
-          <label>镜像：</label>
+          <label>重复：</label>
           <label className='checkbox'>
             <input type='checkbox' checked={isRepeate} onChange={ChangeIsRepeate} />
             <i className='iconfont' />
           </label>
-          <label>重复：</label>
+          <label>相邻：</label>
           <label className='checkbox'>
             <input type='checkbox' checked={isNeighbor} onChange={ChangeIsNeightbor} />
             <i className='iconfont' />
