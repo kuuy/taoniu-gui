@@ -1,0 +1,244 @@
+:root {
+  --nftorange: #ee4116;
+}
+
+.close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  -webkit-app-region: drag;
+}
+
+button {
+  color: #fefefe;
+  background-color: #19a974;
+  font-size: 1.5em;
+  border: 0;
+  border-radius: 8px;
+  margin-right: 1rem;
+  height: 3.5rem;
+  width: 12.5rem;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+button:hover{
+  background-color: #1fc98a;
+}
+
+button .iconfont {
+  font-size: inherit;
+}
+
+button .iconfont+span {
+  margin-left: 20px;
+}
+
+input {
+  outline-style: none;
+  border: 0;
+  -webkit-app-region: no-drag;
+}
+
+label .iconfont {
+  font-size: 1.5em;
+}
+
+label.text input{
+  width: 16px;
+  height: 16px;
+  opacity: 1;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+label.checkbox {
+  position: relative;
+  padding-right: 10px;
+  top: 0.25rem;
+  -webkit-app-region: no-drag;
+}
+
+label.checkbox input{
+  width: 1.2em;
+  height: 1.2em;
+  opacity: 0;
+  position: absolute;
+  top:-0.25rem;
+  left:0.1rem;
+}
+
+input[type="text"] {
+  background-color: #b8d9cb;
+  font-size: 1em;
+  border: 0;
+  border-radius: 3px;
+  padding-left: 0.5rem;
+  height: 1.5rem;
+  width: 12.5rem;
+  opacity: 0.8;
+}
+
+input[type="checkbox"]+i:before{
+  content:'\e50f';
+  color: #212020;
+}
+
+input[type="checkbox"]:checked+i:before{
+  content:'\e6ed';
+  color: #212020;
+}
+
+ul {
+  display:table;
+  width:100%;
+  padding:0;
+  list-style: none;
+  white-space: nowrap;
+  -webkit-app-region: no-drag;
+}
+
+ul > li {
+  display:table-row;
+  line-height: 2.8em;
+}
+
+ul > li:before {
+  content: "";
+}
+
+ul > li > span {
+  font-size: 1.36em;
+  color: #212020;
+  display:table-cell;
+  padding-left: 10px;
+  text-align:left;
+}
+
+ul > li > span.number {
+  text-align:right;
+  padding-left: 10px;
+}
+
+ul > li > span.copy {
+  text-align:center;
+  font-size: 1.6em;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+ul > li > span.copy:hover {
+  opacity: 0.8;
+}
+
+.split {
+  overflow: auto;
+  padding-top:10px;
+}
+
+.split::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.hunts-list {
+  padding-top:0.5em;
+}
+
+.close > i {
+  -webkit-app-region: no-drag;
+  display: block;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  color: #fff;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.close i:hover {
+  opacity: 0.8;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.bg-nftorange {
+  background-color: var(--nftorange);
+}
+
+.hover-b--white {
+  transition: border-color .15s ease-in;
+}
+.hover-b--white:hover {
+  border-color: #fff;
+}
+
+/* https://css-tricks.com/css3-progress-bars/ */
+.meter {
+  margin: 0.5rem 0;
+  height: 20px;
+  position: relative;
+  background: #555;
+  border-radius: 10px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  background-color: #ee4116;
+  background-image: linear-gradient(
+    center bottom,
+    #ee4116 37%,
+    #d53810 69%
+  );
+  box-shadow: 
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+.meter.solid > span {
+  transition: width 300ms ease-in;
+}
+.meter.striped > span:after, .animate > span > span {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-image: linear-gradient(
+    -45deg, 
+    rgba(255, 255, 255, .2) 25%, 
+    transparent 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, .2) 50%, 
+    rgba(255, 255, 255, .2) 75%, 
+    transparent 75%, 
+    transparent
+  );
+  z-index: 1;
+  background-size: 50px 50px;
+  animation: move 2s linear infinite;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.animate > span::after {
+  display: none;
+}
+@keyframes meter-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+.meter > span::after, .animate > span > span {
+  animation: meter-move 2s linear infinite;
+}
